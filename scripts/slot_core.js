@@ -11,7 +11,7 @@
  * injected via function parameters for testability.
  * 
  * @module SlotCore
- * @author CRACKHOUSE Slot Machine
+ * @author CRASHHOUSE Slot Machine
  * @version 1.0.0
  */
 

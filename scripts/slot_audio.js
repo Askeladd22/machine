@@ -18,7 +18,7 @@
  * - ui_click: Subtle mechanical click for UI (100ms)
  * 
  * @module SlotAudio
- * @author CRACKHOUSE Slot Machine
+ * @author CRASHHOUSE Slot Machine
  * @version 2.0.0 - Refactored audio system
  */
 

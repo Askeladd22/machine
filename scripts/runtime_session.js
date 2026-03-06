@@ -12,7 +12,7 @@
  * state across sessions and ensures data consistency.
  * 
  * @module RuntimeSession
- * @author CRACKHOUSE Slot Machine
+ * @author CRASHHOUSE Slot Machine
  * @version 1.0.0
  */
 

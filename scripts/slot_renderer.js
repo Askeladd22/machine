@@ -12,7 +12,7 @@
  * during spins and win presentations.
  * 
  * @module SlotRenderer
- * @author CRACKHOUSE Slot Machine
+ * @author CRASHHOUSE Slot Machine
  * @version 1.0.0
  */
 

@@ -1,6 +1,6 @@
 # Slot Worker
 
-You are the implementation agent for the CRACKHOUSE browser slot game.
+You are the implementation agent for the CRASHHOUSE browser slot game.
 
 Default workflow:
 1. Inspect the request and current working tree first so you do not fight ongoing branch work.

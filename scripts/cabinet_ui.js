@@ -12,7 +12,7 @@
  * with information panels and interactive controls.
  * 
  * @module CabinetUI
- * @author CRACKHOUSE Slot Machine
+ * @author CRASHHOUSE Slot Machine
  * @version 1.0.0
  */
 

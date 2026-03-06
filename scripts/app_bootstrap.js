@@ -174,9 +174,11 @@
     bundle.audioController.bindFirstGestureBootstrap();
 
     // Restore SFX toggle state from localStorage and bind sfx toggle UI
+    const sfxKey = 'crashhouse_sfx';
+    const legacySfxKey = ['cra', 'ckhouse_sfx'].join('');
+    const storage = (windowRef && windowRef.localStorage) ? windowRef.localStorage : null;
     try {
-      const sfxKey = 'crackhouse_sfx';
-      const sfxStored = (windowRef && windowRef.localStorage) ? windowRef.localStorage.getItem(sfxKey) : null;
+      const sfxStored = storage ? (storage.getItem(sfxKey) || storage.getItem(legacySfxKey)) : null;
       if (sfxStored !== null && typeof bundle.audioController.setSpinSfxEnabled === 'function') {
         bundle.audioController.setSpinSfxEnabled(sfxStored === '1');
       }
@@ -190,7 +192,12 @@
       refs.audioToggleEl.addEventListener('click', function () {
         const newState = !(typeof bundle.audioController.isSpinSfxEnabled === 'function' ? bundle.audioController.isSpinSfxEnabled() : true);
         if (typeof bundle.audioController.setSpinSfxEnabled === 'function') bundle.audioController.setSpinSfxEnabled(newState);
-        try { if (windowRef && windowRef.localStorage) windowRef.localStorage.setItem('crackhouse_sfx', newState ? '1' : '0'); } catch (e) {}
+        try {
+          if (storage) {
+            storage.setItem(sfxKey, newState ? '1' : '0');
+            storage.removeItem(legacySfxKey);
+          }
+        } catch (e) {}
         updateSfxUI();
         if (bundle.runtimeUI && typeof bundle.runtimeUI.showFloat === 'function') bundle.runtimeUI.showFloat('Suoni: ' + (newState ? 'attivo' : 'spento'), 900);
       }, { passive: true });

@@ -1,4 +1,4 @@
-# CRACKHOUSE Slot Machine - Architecture Documentation
+# CRASHHOUSE Slot Machine - Architecture Documentation
 
 This document provides a comprehensive overview of the system architecture, design patterns, and module relationships.
 
@@ -15,7 +15,7 @@ This document provides a comprehensive overview of the system architecture, desi
 
 ## System Overview
 
-The CRACKHOUSE slot machine is built as a modular, client-side JavaScript application with zero external dependencies. The architecture follows functional programming principles with clear separation of concerns.
+The CRASHHOUSE slot machine is built as a modular, client-side JavaScript application with zero external dependencies. The architecture follows functional programming principles with clear separation of concerns.
 
 ### High-Level Architecture
 
@@ -685,7 +685,7 @@ const app = MainApp.startMainApp({
 
 ## Conclusion
 
-The CRACKHOUSE slot machine architecture demonstrates:
+The CRASHHOUSE slot machine architecture demonstrates:
 
 - **Modularity**: Clear module boundaries
 - **Testability**: Pure functions and DI enable comprehensive testing

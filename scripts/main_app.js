@@ -11,7 +11,7 @@
  * (SlotCore, UI controllers, audio, rendering, runtime session, etc.)
  * 
  * @module MainApp
- * @author CRACKHOUSE Slot Machine
+ * @author CRASHHOUSE Slot Machine
  * @version 1.0.0
  */
 

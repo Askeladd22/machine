@@ -1,4 +1,4 @@
-# CRACKHOUSE Slot Machine - API Reference
+# CRASHHOUSE Slot Machine - API Reference
 
 Complete API documentation for all public modules and functions.
 

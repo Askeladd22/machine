@@ -12,7 +12,7 @@
  * coordinating between the renderer, audio, and UI systems.
  * 
  * @module SpinRuntime
- * @author CRACKHOUSE Slot Machine
+ * @author CRASHHOUSE Slot Machine
  * @version 1.0.0
  */
 
