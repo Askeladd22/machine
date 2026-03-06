@@ -1238,6 +1238,7 @@
       grid-template-rows: auto auto;
       align-content: start;
       gap: 12px;
+      container-type: inline-size;
       background:
         radial-gradient(circle at top, rgba(255, 211, 112, 0.28), transparent 40%),
         linear-gradient(180deg, rgba(198, 42, 21, 0.16), rgba(198, 42, 21, 0) 30%),
@@ -1284,10 +1285,15 @@
     .mini-label {
       display: block;
       font-size: 10px;
+      line-height: 1.2;
       letter-spacing: .18em;
       text-transform: uppercase;
       color: #d5ba89;
       margin-bottom: 6px;
+    }
+
+    .mini-stat-free .mini-label {
+      letter-spacing: .12em;
     }
 
     .mini-value {
@@ -1297,6 +1303,27 @@
       color: #fff2d0;
       line-height: 1.1;
       text-shadow: none;
+    }
+
+    @container (max-width: 620px) {
+      .action-deck {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+      }
+
+      .action-deck #autoSpin {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @container (max-width: 460px) {
+      .action-deck {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .action-deck #spin,
+      .action-deck #autoSpin {
+        grid-column: 1 / -1;
+      }
     }
 
     .panel-row {
@@ -6748,35 +6775,56 @@
     .coin-tray-readout,
     .hud-meter,
     .session-stat {
-      background-image: none !important;
-      box-shadow: inset 0 0 0 1px rgba(94, 76, 63, 0.28) !important;
-      border-color: rgba(179, 158, 139, 0.12) !important;
+      background:
+        linear-gradient(90deg, rgba(86, 186, 255, 0.08), rgba(0, 0, 0, 0) 18%, rgba(0, 0, 0, 0) 82%, rgba(255, 164, 89, 0.08)),
+        linear-gradient(180deg, rgba(255, 193, 118, 0.14), rgba(255, 193, 118, 0) 18%),
+        linear-gradient(180deg, rgba(41, 28, 23, 0.96), rgba(14, 11, 14, 0.985)) !important;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 214, 163, 0.12),
+        inset 0 1px 0 rgba(255, 244, 220, 0.06),
+        0 18px 30px rgba(0, 0, 0, 0.24),
+        0 0 22px rgba(255, 171, 94, 0.08) !important;
+      border-color: rgba(226, 194, 158, 0.18) !important;
     }
 
     .controls > .control-panel {
-      background-image: none !important;
-      box-shadow: inset 0 0 0 1px rgba(94, 76, 63, 0.24) !important;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 214, 163, 0.1),
+        inset 0 1px 0 rgba(255, 244, 220, 0.05),
+        0 16px 28px rgba(0, 0, 0, 0.22),
+        0 0 18px rgba(86, 186, 255, 0.05) !important;
     }
 
     .panel-kicker {
-      background: none !important;
-      border: 0 !important;
-      box-shadow: none !important;
-      color: #b4ab9d !important;
-      text-shadow: none !important;
+      border: 1px solid rgba(255, 223, 182, 0.12) !important;
+      background:
+        linear-gradient(180deg, rgba(255, 250, 237, 0.08), rgba(255, 250, 237, 0.02)),
+        linear-gradient(180deg, rgba(63, 44, 34, 0.96), rgba(22, 16, 19, 0.98)) !important;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 247, 231, 0.08),
+        inset 0 -1px 0 rgba(130, 79, 39, 0.24),
+        0 10px 18px rgba(0, 0, 0, 0.18) !important;
+      color: #eadfcb !important;
+      text-shadow: 0 0 10px rgba(255, 197, 123, 0.12) !important;
     }
 
     .panel-kicker::before {
-      background: rgba(119, 205, 235, 0.88) !important;
-      box-shadow: 0 0 0 1px rgba(18, 46, 66, 0.5) !important;
+      background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.98), rgba(132, 233, 255, 0.92) 42%, rgba(76, 150, 255, 0.96)) !important;
+      box-shadow:
+        0 0 0 1px rgba(18, 46, 66, 0.5),
+        0 0 12px rgba(132, 233, 255, 0.26) !important;
     }
 
     .bet-box,
     .bet-value-wrap,
     .mini-stat {
-      background-image: none !important;
-      border-color: rgba(179, 158, 139, 0.1) !important;
-      box-shadow: inset 0 0 0 1px rgba(78, 61, 50, 0.26) !important;
+      background:
+        linear-gradient(180deg, rgba(255, 243, 220, 0.05), rgba(255, 243, 220, 0)),
+        linear-gradient(180deg, rgba(33, 24, 20, 0.94), rgba(13, 11, 14, 0.98)) !important;
+      border-color: rgba(226, 194, 158, 0.14) !important;
+      box-shadow:
+        inset 0 0 0 1px rgba(102, 77, 57, 0.24),
+        inset 0 1px 0 rgba(255, 244, 220, 0.04) !important;
     }
 
     .bet-value,
@@ -6784,12 +6832,14 @@
     .hud-value,
     .session-stat-value,
     .tray-value {
-      text-shadow: none !important;
+      text-shadow:
+        0 0 8px rgba(255, 245, 223, 0.12),
+        0 0 18px rgba(255, 183, 92, 0.1) !important;
     }
 
     .panel-footnote,
     .tray-note {
-      color: #867d71 !important;
+      color: #aa9d8d !important;
     }
 
     .panel-footnote {
@@ -6797,7 +6847,7 @@
     }
 
     .control-panel-rhythm .panel-row {
-      border-color: rgba(179, 158, 139, 0.08) !important;
+      border-color: rgba(226, 194, 158, 0.1) !important;
     }
 
     .coin-tray,
@@ -6826,28 +6876,33 @@
     .slot-stage {
       padding: 0 6px 10px;
       background:
-        radial-gradient(circle at top, rgba(255, 183, 104, 0.12), transparent 26%),
-        linear-gradient(180deg, rgba(70, 18, 18, 0.62) 0, rgba(18, 18, 28, 0.94) 220px, rgba(8, 10, 16, 0.98) 221px);
+        radial-gradient(circle at top, rgba(255, 205, 126, 0.18), transparent 30%),
+        radial-gradient(circle at 50% 180px, rgba(255, 118, 76, 0.08), transparent 32%),
+        linear-gradient(180deg, rgba(84, 34, 24, 0.58) 0, rgba(31, 20, 25, 0.88) 220px, rgba(12, 11, 18, 0.94) 221px);
       box-shadow:
-        inset 0 0 0 1px rgba(118, 78, 48, 0.34),
-        0 18px 32px rgba(0, 0, 0, 0.2);
+        inset 0 0 0 1px rgba(148, 106, 70, 0.3),
+        0 18px 32px rgba(0, 0, 0, 0.22);
     }
 
     .slot-shell {
       overflow: visible;
       padding: 14px 24px 14px 16px;
-      border-color: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 233, 200, 0.08);
       background:
-        linear-gradient(180deg, rgba(28, 30, 44, 0.98), rgba(5, 7, 11, 0.995));
+        linear-gradient(90deg, rgba(255, 188, 94, 0.06), rgba(0, 0, 0, 0) 16%, rgba(0, 0, 0, 0) 84%, rgba(84, 174, 255, 0.06)),
+        linear-gradient(180deg, rgba(37, 33, 38, 0.97), rgba(11, 10, 16, 0.99));
       box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-        0 26px 46px rgba(0, 0, 0, 0.46);
+        inset 0 0 0 1px rgba(255, 239, 213, 0.04),
+        0 26px 46px rgba(0, 0, 0, 0.38),
+        0 0 30px rgba(255, 176, 92, 0.06);
     }
 
     .slot-shell::before {
       inset: 8px;
-      border-color: rgba(255, 255, 255, 0.04);
-      box-shadow: inset 0 0 24px rgba(116, 146, 187, 0.04);
+      border-color: rgba(255, 241, 218, 0.06);
+      box-shadow:
+        inset 0 0 24px rgba(255, 183, 97, 0.05),
+        0 0 26px rgba(98, 188, 255, 0.04);
     }
 
     .feature-state-banner {
@@ -6861,12 +6916,12 @@
       max-width: min(340px, calc(100% - 132px));
       padding: 10px 14px 11px;
       border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 235, 205, 0.1);
       background:
-        linear-gradient(180deg, rgba(16, 20, 29, 0.9), rgba(6, 8, 14, 0.94));
+        linear-gradient(180deg, rgba(44, 31, 24, 0.88), rgba(15, 11, 14, 0.94));
       box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-        0 12px 22px rgba(0, 0, 0, 0.3);
+        inset 0 0 0 1px rgba(255, 240, 220, 0.04),
+        0 12px 22px rgba(0, 0, 0, 0.24);
       pointer-events: none;
     }
 
@@ -6945,14 +7000,15 @@
       margin: 0 24px 0 2px;
       padding: 10px 6px 8px;
       border-radius: 20px;
-      border: 1px solid rgba(214, 197, 174, 0.1);
+      border: 1px solid rgba(228, 203, 170, 0.14);
       background:
-        linear-gradient(180deg, rgba(20, 24, 34, 0.98), rgba(4, 6, 10, 0.995));
+        radial-gradient(circle at 50% 10%, rgba(255, 247, 222, 0.05), rgba(255, 247, 222, 0) 34%),
+        linear-gradient(180deg, rgba(40, 31, 27, 0.97), rgba(11, 10, 14, 0.99));
       box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.03),
-        inset 0 0 0 3px rgba(3, 5, 8, 0.9),
-        0 18px 28px rgba(0, 0, 0, 0.4),
-        0 0 24px rgba(46, 86, 136, 0.06);
+        inset 0 0 0 1px rgba(255, 241, 216, 0.05),
+        inset 0 0 0 4px rgba(14, 11, 15, 0.78),
+        0 18px 28px rgba(0, 0, 0, 0.34),
+        0 0 26px rgba(255, 177, 92, 0.07);
     }
 
     .slot-frame::before,
@@ -6969,15 +7025,15 @@
       height: 22px;
       border-radius: 20px 20px 0 0;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0) 24%),
-        linear-gradient(180deg, rgba(2, 4, 8, 0.44), rgba(2, 4, 8, 0));
+        linear-gradient(180deg, rgba(255, 251, 241, 0.08), rgba(255, 251, 241, 0) 24%),
+        linear-gradient(180deg, rgba(13, 10, 14, 0.3), rgba(13, 10, 14, 0));
     }
 
     .reel-bed::after {
       bottom: 0;
       height: 24px;
       border-radius: 0 0 20px 20px;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(2, 4, 8, 0.54));
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(14, 10, 14, 0.38));
     }
 
     .slot {
@@ -6987,41 +7043,41 @@
     .slot::before {
       top: 0;
       height: 20px;
-      background: linear-gradient(180deg, rgba(248, 252, 255, 0.04), rgba(248, 252, 255, 0) 30%);
+      background: linear-gradient(180deg, rgba(255, 250, 240, 0.06), rgba(255, 250, 240, 0) 30%);
     }
 
     .slot::after {
       bottom: 0;
       height: 22px;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(3, 5, 10, 0.4));
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(12, 9, 14, 0.28));
     }
 
     .slot-reel-backdrop {
       width: min(54%, 430px);
-      opacity: 0.07;
-      filter: blur(1.2px) saturate(0.56) brightness(0.62) drop-shadow(0 12px 18px rgba(0, 0, 0, 0.28));
+      opacity: 0.12;
+      filter: blur(0.7px) saturate(0.84) brightness(0.82) drop-shadow(0 12px 18px rgba(0, 0, 0, 0.22));
     }
 
     .reel-lane {
       border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 241, 214, 0.12);
       background:
-        radial-gradient(circle at 50% 18%, rgba(112, 140, 174, 0.08), rgba(112, 140, 174, 0) 40%),
-        linear-gradient(180deg, rgba(17, 22, 31, 0.98) 0%, rgba(7, 10, 16, 0.995) 18%, rgba(10, 13, 20, 0.995) 82%, rgba(18, 25, 35, 0.98) 100%);
+        radial-gradient(circle at 50% 16%, rgba(255, 247, 227, 0.2), rgba(255, 247, 227, 0) 38%),
+        linear-gradient(180deg, rgba(248, 236, 214, 0.98) 0%, rgba(227, 203, 171, 0.98) 14%, rgba(236, 214, 186, 0.98) 54%, rgba(198, 165, 126, 0.98) 100%);
       box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.02),
-        inset 16px 0 18px rgba(71, 93, 124, 0.07),
-        inset -16px 0 18px rgba(0, 0, 0, 0.34),
-        inset 0 18px 24px rgba(255, 255, 255, 0.02),
-        inset 0 -22px 28px rgba(0, 0, 0, 0.42),
-        0 22px 30px rgba(0, 0, 0, 0.3);
+        inset 0 0 0 1px rgba(110, 76, 44, 0.18),
+        inset 16px 0 18px rgba(255, 252, 242, 0.12),
+        inset -16px 0 18px rgba(114, 76, 39, 0.14),
+        inset 0 18px 24px rgba(255, 255, 255, 0.08),
+        inset 0 -22px 28px rgba(88, 54, 26, 0.14),
+        0 18px 28px rgba(0, 0, 0, 0.22);
     }
 
     .reel-lane::before {
       background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02) 12%, rgba(255, 255, 255, 0) 28%, rgba(0, 0, 0, 0.18) 76%, rgba(0, 0, 0, 0.32) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0) 26%, rgba(0, 0, 0, 0.12) 100%);
-      opacity: 0.72;
+        linear-gradient(90deg, rgba(110, 78, 47, 0.14) 0%, rgba(255, 255, 255, 0.18) 14%, rgba(255, 255, 255, 0) 34%, rgba(0, 0, 0, 0.08) 82%, rgba(0, 0, 0, 0.14) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 30%, rgba(70, 46, 25, 0.06) 100%);
+      opacity: 0.84;
     }
 
     .reel-lane::after {
@@ -7030,8 +7086,8 @@
       top: 6px;
       bottom: 6px;
       border-radius: 14px;
-      border-color: rgba(194, 210, 229, 0.08);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.015);
+      border-color: rgba(123, 88, 55, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(255, 250, 238, 0.06);
     }
 
     .cabinet-light-rail {
@@ -7086,61 +7142,64 @@
     .cell {
       border-radius: 10px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(0, 0, 0, 0.08)),
-        linear-gradient(180deg, rgba(24, 30, 42, 0.18), rgba(8, 10, 16, 0.08));
+        linear-gradient(180deg, rgba(255, 247, 227, 0.09), rgba(0, 0, 0, 0.04)),
+        linear-gradient(112deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 26%);
       box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.02),
-        inset 0 10px 12px rgba(255, 255, 255, 0.015),
-        inset 0 -12px 14px rgba(0, 0, 0, 0.14);
+        inset 0 0 0 1px rgba(255, 239, 212, 0.08),
+        inset 0 8px 12px rgba(255, 248, 232, 0.05),
+        inset 0 -10px 12px rgba(0, 0, 0, 0.06);
     }
 
     .cell::before {
       inset: 3px;
       border-radius: 10px;
-      border-color: rgba(255, 255, 255, 0.045);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0) 26%);
-      box-shadow: none;
+      border-color: rgba(255, 241, 214, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 28%),
+        radial-gradient(96% 84% at 50% 0%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0) 44%);
+      box-shadow: inset 0 0 0 1px rgba(255, 241, 214, 0.03);
     }
 
     .cell::after {
       inset: 3px;
       border-radius: 10px;
       background:
-        radial-gradient(120% 100% at 50% 100%, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0) 48%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.08) 100%);
-      opacity: 0.16;
+        radial-gradient(120% 100% at 50% 100%, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0) 48%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.04) 100%);
+      opacity: 0.22;
     }
 
     .cell .spin-ghost {
       width: 92%;
       height: 92%;
-      filter: blur(4.4px) saturate(1.04) brightness(1.02);
+      filter: blur(3.8px) saturate(1.08) brightness(1.06);
       transform: translateY(0) scale(1.06, 1.1);
     }
 
     .cell .symbol-face {
       width: 92%;
       height: 92%;
-      filter: saturate(1.03) brightness(1.02) contrast(1.03) drop-shadow(0 10px 14px rgba(0, 0, 0, 0.34));
+      filter: saturate(1.06) brightness(1.08) contrast(1.03) drop-shadow(0 10px 14px rgba(0, 0, 0, 0.24));
       transform: translateY(0) scale(1.05, 1.03);
     }
 
     .payline-overlay .glow {
       stroke-width: 10;
       filter: blur(4px);
-      opacity: 0.22;
+      opacity: 0.34;
     }
 
     .payline-overlay .line {
       stroke-width: 3.2;
-      opacity: 0.84;
+      opacity: 0.92;
     }
 
     .cell.win {
-      outline: 1.5px solid rgba(255, 229, 150, 0.72);
+      outline: 1.5px solid rgba(255, 229, 150, 0.82);
       box-shadow:
-        0 0 0 1px rgba(255, 229, 150, 0.14),
-        0 10px 20px rgba(0, 0, 0, 0.28);
+        0 0 0 1px rgba(255, 229, 150, 0.18),
+        0 0 22px rgba(255, 183, 76, 0.16),
+        0 10px 20px rgba(0, 0, 0, 0.22);
       transform: translateY(-1px) scale(1.01);
     }
 
