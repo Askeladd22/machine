@@ -1238,7 +1238,6 @@
       grid-template-rows: auto auto;
       align-content: start;
       gap: 12px;
-      container-type: inline-size;
       background:
         radial-gradient(circle at top, rgba(255, 211, 112, 0.28), transparent 40%),
         linear-gradient(180deg, rgba(198, 42, 21, 0.16), rgba(198, 42, 21, 0) 30%),
@@ -1247,8 +1246,8 @@
 
     .action-deck {
       display: grid;
-      grid-template-columns: minmax(120px, .72fr) minmax(180px, 1fr) minmax(120px, .72fr) auto;
-      gap: 10px;
+      grid-template-columns: minmax(56px, .82fr) minmax(112px, 1.42fr) minmax(56px, .82fr) minmax(60px, .72fr);
+      gap: 6px;
       align-items: center;
     }
 
@@ -1257,6 +1256,10 @@
     .action-deck #autoSpin {
       width: 100%;
       min-width: 0;
+    }
+
+    .action-deck .mini-stat {
+      padding: 10px 6px 8px;
     }
 
     .action-row {
@@ -1292,8 +1295,23 @@
       margin-bottom: 6px;
     }
 
-    .mini-stat-free .mini-label {
+    .action-deck .mini-label {
+      font-size: 8px;
       letter-spacing: .12em;
+      margin-bottom: 4px;
+    }
+
+    .mini-stat-free .mini-label {
+      letter-spacing: .08em;
+    }
+
+    .action-deck .mini-value {
+      font-size: 16px;
+    }
+
+    .action-deck #spin,
+    .action-deck #autoSpin {
+      padding-inline: 8px;
     }
 
     .mini-value {
@@ -1303,27 +1321,6 @@
       color: #fff2d0;
       line-height: 1.1;
       text-shadow: none;
-    }
-
-    @container (max-width: 620px) {
-      .action-deck {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
-      }
-
-      .action-deck #autoSpin {
-        grid-column: 1 / -1;
-      }
-    }
-
-    @container (max-width: 460px) {
-      .action-deck {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .action-deck #spin,
-      .action-deck #autoSpin {
-        grid-column: 1 / -1;
-      }
     }
 
     .panel-row {
@@ -6776,36 +6773,31 @@
     .hud-meter,
     .session-stat {
       background:
-        linear-gradient(90deg, rgba(86, 186, 255, 0.08), rgba(0, 0, 0, 0) 18%, rgba(0, 0, 0, 0) 82%, rgba(255, 164, 89, 0.08)),
-        linear-gradient(180deg, rgba(255, 193, 118, 0.14), rgba(255, 193, 118, 0) 18%),
-        linear-gradient(180deg, rgba(41, 28, 23, 0.96), rgba(14, 11, 14, 0.985)) !important;
+        radial-gradient(circle at top, rgba(255, 214, 136, 0.18), rgba(255, 214, 136, 0) 38%),
+        linear-gradient(180deg, rgba(191, 44, 22, 0.12), rgba(191, 44, 22, 0) 24%),
+        linear-gradient(145deg, rgba(104, 49, 28, 0.96), rgba(42, 23, 18, 0.98) 62%, rgba(18, 12, 12, 0.985)) !important;
       box-shadow:
-        inset 0 0 0 1px rgba(255, 214, 163, 0.12),
-        inset 0 1px 0 rgba(255, 244, 220, 0.06),
-        0 18px 30px rgba(0, 0, 0, 0.24),
-        0 0 22px rgba(255, 171, 94, 0.08) !important;
-      border-color: rgba(226, 194, 158, 0.18) !important;
+        0 18px 30px rgba(0, 0, 0, 0.22),
+        inset 0 0 0 1px rgba(120, 70, 40, 0.48),
+        inset 0 18px 22px rgba(255, 236, 196, 0.06),
+        0 0 28px rgba(255, 148, 52, 0.06) !important;
+      border-color: rgba(255, 214, 138, 0.18) !important;
     }
 
     .controls > .control-panel {
       box-shadow:
-        inset 0 0 0 1px rgba(255, 214, 163, 0.1),
-        inset 0 1px 0 rgba(255, 244, 220, 0.05),
-        0 16px 28px rgba(0, 0, 0, 0.22),
-        0 0 18px rgba(86, 186, 255, 0.05) !important;
+        0 18px 30px rgba(0, 0, 0, 0.22),
+        inset 0 0 0 1px rgba(120, 70, 40, 0.44),
+        inset 0 18px 22px rgba(255, 236, 196, 0.05),
+        0 0 24px rgba(255, 148, 52, 0.05) !important;
     }
 
     .panel-kicker {
-      border: 1px solid rgba(255, 223, 182, 0.12) !important;
-      background:
-        linear-gradient(180deg, rgba(255, 250, 237, 0.08), rgba(255, 250, 237, 0.02)),
-        linear-gradient(180deg, rgba(63, 44, 34, 0.96), rgba(22, 16, 19, 0.98)) !important;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 247, 231, 0.08),
-        inset 0 -1px 0 rgba(130, 79, 39, 0.24),
-        0 10px 18px rgba(0, 0, 0, 0.18) !important;
-      color: #eadfcb !important;
-      text-shadow: 0 0 10px rgba(255, 197, 123, 0.12) !important;
+      border: 0 !important;
+      background: none !important;
+      box-shadow: none !important;
+      color: #d4bc92 !important;
+      text-shadow: none !important;
     }
 
     .panel-kicker::before {
@@ -6819,12 +6811,13 @@
     .bet-value-wrap,
     .mini-stat {
       background:
-        linear-gradient(180deg, rgba(255, 243, 220, 0.05), rgba(255, 243, 220, 0)),
-        linear-gradient(180deg, rgba(33, 24, 20, 0.94), rgba(13, 11, 14, 0.98)) !important;
+        linear-gradient(180deg, rgba(255, 241, 214, 0.08), rgba(255, 241, 214, 0)),
+        linear-gradient(180deg, rgba(54, 31, 23, 0.94), rgba(19, 14, 15, 0.98)) !important;
       border-color: rgba(226, 194, 158, 0.14) !important;
       box-shadow:
-        inset 0 0 0 1px rgba(102, 77, 57, 0.24),
-        inset 0 1px 0 rgba(255, 244, 220, 0.04) !important;
+        inset 0 0 0 1px rgba(110, 66, 36, 0.36),
+        inset 0 10px 12px rgba(255, 234, 192, 0.04),
+        0 10px 18px rgba(0, 0, 0, 0.14) !important;
     }
 
     .bet-value,
@@ -6876,33 +6869,31 @@
     .slot-stage {
       padding: 0 6px 10px;
       background:
-        radial-gradient(circle at top, rgba(255, 205, 126, 0.18), transparent 30%),
-        radial-gradient(circle at 50% 180px, rgba(255, 118, 76, 0.08), transparent 32%),
-        linear-gradient(180deg, rgba(84, 34, 24, 0.58) 0, rgba(31, 20, 25, 0.88) 220px, rgba(12, 11, 18, 0.94) 221px);
+        radial-gradient(circle at top, rgba(255, 205, 126, 0.22), transparent 32%),
+        linear-gradient(180deg, rgba(112, 58, 34, 0.4) 0, rgba(46, 26, 22, 0.66) 220px, rgba(20, 14, 15, 0.82) 221px);
       box-shadow:
-        inset 0 0 0 1px rgba(148, 106, 70, 0.3),
-        0 18px 32px rgba(0, 0, 0, 0.22);
+        inset 0 0 0 1px rgba(148, 106, 70, 0.24),
+        0 18px 32px rgba(0, 0, 0, 0.18);
     }
 
     .slot-shell {
       overflow: visible;
       padding: 14px 24px 14px 16px;
-      border-color: rgba(255, 233, 200, 0.08);
+      border-color: rgba(192, 146, 99, 0.28);
       background:
-        linear-gradient(90deg, rgba(255, 188, 94, 0.06), rgba(0, 0, 0, 0) 16%, rgba(0, 0, 0, 0) 84%, rgba(84, 174, 255, 0.06)),
-        linear-gradient(180deg, rgba(37, 33, 38, 0.97), rgba(11, 10, 16, 0.99));
+        linear-gradient(180deg, rgba(78, 49, 36, 0.58), rgba(24, 16, 13, 0.94)),
+        linear-gradient(90deg, rgba(132, 93, 70, 0.12), rgba(0, 0, 0, 0) 24%, rgba(132, 93, 70, 0.12));
       box-shadow:
-        inset 0 0 0 1px rgba(255, 239, 213, 0.04),
-        0 26px 46px rgba(0, 0, 0, 0.38),
-        0 0 30px rgba(255, 176, 92, 0.06);
+        inset 0 0 0 1px rgba(123, 87, 64, 0.42),
+        inset 0 14px 20px rgba(255, 226, 175, 0.03),
+        0 24px 44px rgba(0, 0, 0, 0.28);
     }
 
     .slot-shell::before {
       inset: 8px;
-      border-color: rgba(255, 241, 218, 0.06);
+      border-color: rgba(166, 121, 84, 0.16);
       box-shadow:
-        inset 0 0 24px rgba(255, 183, 97, 0.05),
-        0 0 26px rgba(98, 188, 255, 0.04);
+        inset 0 0 18px rgba(255, 183, 97, 0.04);
     }
 
     .feature-state-banner {
@@ -6916,12 +6907,12 @@
       max-width: min(340px, calc(100% - 132px));
       padding: 10px 14px 11px;
       border-radius: 15px;
-      border: 1px solid rgba(255, 235, 205, 0.1);
+      border: 1px solid rgba(196, 157, 112, 0.18);
       background:
-        linear-gradient(180deg, rgba(44, 31, 24, 0.88), rgba(15, 11, 14, 0.94));
+        linear-gradient(180deg, rgba(67, 46, 33, 0.84), rgba(28, 18, 16, 0.9));
       box-shadow:
-        inset 0 0 0 1px rgba(255, 240, 220, 0.04),
-        0 12px 22px rgba(0, 0, 0, 0.24);
+        inset 0 0 0 1px rgba(255, 240, 220, 0.03),
+        0 10px 18px rgba(0, 0, 0, 0.18);
       pointer-events: none;
     }
 
@@ -7000,15 +6991,15 @@
       margin: 0 24px 0 2px;
       padding: 10px 6px 8px;
       border-radius: 20px;
-      border: 1px solid rgba(228, 203, 170, 0.14);
+      border: 2px solid rgba(176, 132, 84, 0.28);
       background:
-        radial-gradient(circle at 50% 10%, rgba(255, 247, 222, 0.05), rgba(255, 247, 222, 0) 34%),
-        linear-gradient(180deg, rgba(40, 31, 27, 0.97), rgba(11, 10, 14, 0.99));
+        radial-gradient(circle at center, rgba(255, 225, 167, 0.12), rgba(255, 225, 167, 0) 58%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 18%),
+        linear-gradient(180deg, #43281a, #1b130e);
       box-shadow:
-        inset 0 0 0 1px rgba(255, 241, 216, 0.05),
-        inset 0 0 0 4px rgba(14, 11, 15, 0.78),
-        0 18px 28px rgba(0, 0, 0, 0.34),
-        0 0 26px rgba(255, 177, 92, 0.07);
+        inset 0 0 0 1px rgba(102, 64, 32, 0.64),
+        inset 0 16px 22px rgba(255, 226, 175, 0.08),
+        0 14px 24px rgba(0, 0, 0, 0.18);
     }
 
     .slot-frame::before,
@@ -7025,15 +7016,15 @@
       height: 22px;
       border-radius: 20px 20px 0 0;
       background:
-        linear-gradient(180deg, rgba(255, 251, 241, 0.08), rgba(255, 251, 241, 0) 24%),
-        linear-gradient(180deg, rgba(13, 10, 14, 0.3), rgba(13, 10, 14, 0));
+        linear-gradient(180deg, rgba(255, 251, 241, 0.1), rgba(255, 251, 241, 0) 24%),
+        linear-gradient(180deg, rgba(33, 22, 14, 0.18), rgba(33, 22, 14, 0));
     }
 
     .reel-bed::after {
       bottom: 0;
       height: 24px;
       border-radius: 0 0 20px 20px;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(14, 10, 14, 0.38));
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(33, 22, 14, 0.16));
     }
 
     .slot {
@@ -7054,8 +7045,8 @@
 
     .slot-reel-backdrop {
       width: min(54%, 430px);
-      opacity: 0.12;
-      filter: blur(0.7px) saturate(0.84) brightness(0.82) drop-shadow(0 12px 18px rgba(0, 0, 0, 0.22));
+      opacity: 0.16;
+      filter: blur(0.55px) saturate(0.94) brightness(0.92) drop-shadow(0 12px 18px rgba(0, 0, 0, 0.18));
     }
 
     .reel-lane {
@@ -7289,8 +7280,8 @@
     }
 
     .action-deck {
-      grid-template-columns: minmax(128px, .8fr) minmax(220px, 1.16fr) minmax(128px, .8fr) minmax(96px, .42fr);
-      gap: 12px;
+      grid-template-columns: minmax(56px, .82fr) minmax(112px, 1.42fr) minmax(56px, .82fr) minmax(60px, .72fr);
+      gap: 6px;
       align-items: stretch;
     }
 
